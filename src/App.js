@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Image from "./img/people.svg"
 import './App.css';
 
 function App() {
+
+  const [ comment, setComment ] = useState()
+  const [allComment, setAllComment] = useState([])
+
+  function typeHere(e){
+    setComment(e.target.value)
+  }
+
+  function clickhere(){
+    const allCommentAfter = [...allComment, comment]
+
+    setAllComment(allCommentAfter)
+  
+  }
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <section className='container'>
+    <img src= {Image} alt="Pessoas"/>
+    <textarea onChange={typeHere}></textarea>
+    <button onClick={clickhere}>Comentar</button>
+
+    <ul>
+     {allComment.map (coment => (
+
+        <li key={coment}> {coment}</li>
+
+     ))}
+      
+    </ul>
+    </section>
     </div>
   );
 }
