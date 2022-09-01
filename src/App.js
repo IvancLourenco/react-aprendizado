@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Image from "./img/people.svg"
-import './App.css';
+import Button  from './styles';
+
+
 
 function App() {
-
   const [ comment, setComment ] = useState()
   const [allComment, setAllComment] = useState([])
 
@@ -23,12 +24,12 @@ function App() {
       <section className='container'>
     <img src= {Image} alt="Pessoas"/>
     <textarea onChange={typeHere}></textarea>
-    <button onClick={clickhere}>Comentar</button>
+    <Button isOn = {comment} onClick={clickhere}>Comentar</Button>
 
     <ul>
-     {allComment.map (coment => (
+     {allComment.map ((cmt, index) => (
 
-        <li key={coment}> {coment}</li>
+        <li key={index}> {cmt}</li>
 
      ))}
       
