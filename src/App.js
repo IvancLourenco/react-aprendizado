@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from "./img/people.svg"
-import Button  from './styles';
+import {Button, Container, List}  from './styles';
 
 
 
@@ -20,22 +20,21 @@ function App() {
   }
     
   return (
-    <div>
-      <section className='container'>
+    <Container>
     <img src= {Image} alt="Pessoas"/>
     <textarea onChange={typeHere}></textarea>
     <Button isOn = {comment} onClick={clickhere}>Comentar</Button>
 
-    <ul>
+    <List>
      {allComment.map ((cmt, index) => (
 
         <li key={index}> {cmt}</li>
 
      ))}
       
-    </ul>
-    </section>
-    </div>
+    </List>
+    
+    </Container>
   );
 }
 
